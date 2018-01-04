@@ -1,0 +1,3 @@
+rootProject.name = 'CanvassCoord'
+
+include ':app'
