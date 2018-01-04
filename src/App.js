@@ -3,6 +3,7 @@ import { View, Text } from 'react-native'
 import firebase from 'firebase'
 
 import { Header } from './components/common'
+import LoginForm from './components/LoginForm'
 
 class App extends Component {
   componentWillMount() {
@@ -20,8 +21,10 @@ class App extends Component {
 
   render() {
     return (
-      <Header headerTitle={'CanvassCoord'} />
-      // <Text>Cool</Text>
+      <View>
+        <Header headerTitle={'CanvassCoord'} />
+        <LoginForm />
+      </View>
     )
   }
 }
