@@ -16,5 +16,6 @@ const App = () => {
     <Header headerTitle={'CanvassCoord'} />
   )
 }
+// class App extends Component
 
 AppRegistry.registerComponent('CanvassCoord', () => App)
