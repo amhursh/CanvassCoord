@@ -8,7 +8,9 @@ class LoginForm extends Component {
     return (
       <Card>
         <CardSection>
-          <Input 
+          <Input
+            placeholder="user123@gmail.com"
+            label="Email" 
             value={this.state.text}
             onChangeText={text => this.setState({ text })}
           />
