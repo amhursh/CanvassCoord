@@ -1,21 +1,4 @@
-// import { AppRegistry } from 'react-native';
-// import App from './App';
-
-// AppRegistry.registerComponent('CanvassCoord', () => App);
-
-
-import React from 'react'
-import { 
-  Text,
-  AppRegistry
- } from 'react-native'
-import Header from './src/components/header'
-
-const App = () => {
-  return (
-    <Header headerTitle={'CanvassCoord'} />
-  )
-}
-// class App extends Component
+import { AppRegistry } from 'react-native';
+import App from './src/App';
 
 AppRegistry.registerComponent('CanvassCoord', () => App)
