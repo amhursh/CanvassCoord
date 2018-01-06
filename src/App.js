@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import ReduxThunk from 'redux-thunk'
 import firebase from 'firebase'
+
+import reducers from './reducers'
 
 import { Header, Button, Card, CardSection, Spinner } from './components/common'
 import LoginForm from './components/LoginForm'
+
+const store = createStore(reducers, {}, applyMiddleware(ReduxThunk))
 
 class App extends Component {
   state = { loggedIn: null }
@@ -50,10 +57,12 @@ class App extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <Header headerTitle={'CanvassCoord'} />
-        {this.renderContent()}
-      </View>
+      <Provider store={store}>
+        <View style={{ flex: 1 }}>
+          <Header headerTitle={'CanvassCoord'} />
+          {this.renderContent()}
+        </View>
+      </Provider>
     )
   }
 }
