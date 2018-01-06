@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Text } from 'react-native'
+import { connect } from 'react-redux'
 import firebase from 'firebase'
+
+import { emailChanged, passwordChanged } from '../actions'
 
 import { Button, Card, CardSection, Input, Spinner } from './common'
 
@@ -46,7 +49,11 @@ class LoginForm extends Component {
   }
 
   onEmailChange(text) {
-    
+    this.props.emailChanged(text)
+  }
+
+  onPasswordChange(text) {
+    this.props.passwordChanged(text)
   }
 
   render() {
@@ -56,7 +63,7 @@ class LoginForm extends Component {
           <Input
             placeholder="user123@gmail.com"
             label="Email" 
-            value={this.state.email}
+            value={this.props.email}
             // onChangeText={email => this.setState({ email })}
             onChangeText={this.onEmailChange.bind(this)}
           />
@@ -66,8 +73,8 @@ class LoginForm extends Component {
             secureTextEntry={true} 
             placeholder="opensesame123"
             label="Password"
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
+            value={this.props.password}
+            onChangeText={this.onPasswordChange.bind(this)}
           />
         </CardSection>
         <Text style={styles.errorTextStyle}>
@@ -89,4 +96,11 @@ const styles = {
   }
 }
 
-export default LoginForm
+const mapStateToProps = state => {
+  return {
+    email: state.auth.email,
+    password: state.auth.password
+  }
+}
+
+export default connect(mapStateToProps, { emailChanged, passwordChanged })(LoginForm)
