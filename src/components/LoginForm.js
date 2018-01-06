@@ -45,6 +45,10 @@ class LoginForm extends Component {
     )
   }
 
+  onEmailChange(text) {
+    
+  }
+
   render() {
     return (
       <Card>
@@ -53,7 +57,8 @@ class LoginForm extends Component {
             placeholder="user123@gmail.com"
             label="Email" 
             value={this.state.email}
-            onChangeText={email => this.setState({ email })}
+            // onChangeText={email => this.setState({ email })}
+            onChangeText={this.onEmailChange.bind(this)}
           />
         </CardSection>
         <CardSection>
