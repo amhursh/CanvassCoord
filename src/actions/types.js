@@ -9,3 +9,6 @@ export const LOGIN_USER_FAIL = 'login_user_fail'
 export const LOGIN_USER = 'login_user'
 
 export const LOUGOUT_USER = 'logout_user'
+
+
+export const CAMPAIGN_FETCH_SUCCESS = 'campaign_fetch_success'

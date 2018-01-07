@@ -3,6 +3,7 @@ import { Text } from 'react-native'
 
 class CampaignItem extends Component {
   render() {
+    console.log(this.props.campaign)
     const { campaign } = this.props
 
     return (
