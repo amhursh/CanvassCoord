@@ -7,8 +7,17 @@ class CampaignItem extends Component {
     const { campaign } = this.props
 
     return (
-      <Text>{campaign.title}</Text>
+      <Text style={styles.campaignStyles}>
+        {campaign.title}
+      </Text>
     )
+  }
+}
+
+const styles = {
+  campaignStyles: {
+    fontSize: 20,
+    paddingLeft: 10
   }
 }
 
