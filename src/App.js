@@ -6,9 +6,9 @@ import ReduxThunk from 'redux-thunk'
 import firebase from 'firebase'
 
 import reducers from './reducers'
-
 import { Header, Button, Card, CardSection, Spinner } from './components/common'
-import LoginForm from './components/LoginForm'
+// import LoginForm from './components/LoginForm'
+import Router from './Router'
 
 const store = createStore(reducers, {}, applyMiddleware(ReduxThunk))
 
@@ -27,40 +27,39 @@ class App extends Component {
       }
     )
 
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({ loggedIn: true })
-      } else {
-        this.setState({ loggedIn: false })
-      }
-    })
+    // firebase.auth().onAuthStateChanged((user) => {
+    //   if (user) {
+    //     this.setState({ loggedIn: true })
+    //   } else {
+    //     this.setState({ loggedIn: false })
+    //   }
+    // })
   }
 
-  renderContent() {
-    switch (this.state.loggedIn) {
-      case true:
-        return (
-          <CardSection>
-            <Button onPress={() => firebase.auth().signOut()}>
-              Log Out
-            </Button>
-          </CardSection>
-        )
-      case false:
-        return <LoginForm />
-      default:
-        return (
-          <Spinner size="large" />
-        ) 
-    }
-  }
+  // renderContent() {
+  //   switch (this.state.loggedIn) {
+  //     case true:
+  //       return (
+  //         <CardSection>
+  //           <Button onPress={() => firebase.auth().signOut()}>
+  //             Log Out
+  //           </Button>
+  //         </CardSection>
+  //       )
+  //     case false:
+  //       return <LoginForm />
+  //     default:
+  //       return (
+  //         <Spinner size="large" />
+  //       ) 
+  //   }
+  // }
 
   render() {
     return (
       <Provider store={store}>
         <View style={{ flex: 1 }}>
-          <Header headerTitle={'CanvassCoord'} />
-          {this.renderContent()}
+          <Router />
         </View>
       </Provider>
     )
