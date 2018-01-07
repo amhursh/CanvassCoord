@@ -1,4 +1,9 @@
-import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, LOGIN_USER } from '../actions/types'
+import { EMAIL_CHANGED, 
+         PASSWORD_CHANGED, 
+         LOGIN_USER_SUCCESS, 
+         LOGIN_USER_FAIL, 
+         LOGIN_USER, 
+         LOUGOUT_USER } from '../actions/types'
 
 const INITIAL_STATE = { email: '', password: '', user: null, error: '', loading: false }
 
@@ -14,6 +19,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, error: 'Invalid Credentials', loading: false }
     case LOGIN_USER:
       return { ...state, error: '', loading: true }
+    case LOUGOUT_USER:
+      return INITIAL_STATE
     default:
       return state
   }
