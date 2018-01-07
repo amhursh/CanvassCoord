@@ -11,8 +11,14 @@ const RouterComponent = () => {
         <Scene key="auth">
           <Scene key="login" component={LoginForm} title="Login" />
         </Scene>
+
         <Scene key="main">
-          <Scene key="targetList" component={TargetList} title="Targets" />
+          <Scene
+            key="targetList" 
+            component={TargetList} 
+            title="Targets" 
+            headerMode="screen" 
+          />
         </Scene>
       </Scene>
     </Router>
