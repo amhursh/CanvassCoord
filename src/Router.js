@@ -7,9 +7,13 @@ import TargetList from './components/TargetList'
 const RouterComponent = () => {
   return (
     <Router>
-      <Scene key="root">
-        <Scene key="login" component={LoginForm} title="Login" />
-        <Scene key="targetList" component={TargetList} title="Targets" />
+      <Scene key="root" hideNavBar>
+        <Scene key="auth">
+          <Scene key="login" component={LoginForm} title="Login" />
+        </Scene>
+        <Scene key="main">
+          <Scene key="targetList" component={TargetList} title="Targets" />
+        </Scene>
       </Scene>
     </Router>
   )

@@ -32,7 +32,7 @@ const loginUserSuccess = (dispatch, user) => {
     type: LOGIN_USER_SUCCESS,
     payload: user
   })
-  Actions.targetList()
+  Actions.main()
 }
 
 const loginUserFail = (dispatch, error) => {
