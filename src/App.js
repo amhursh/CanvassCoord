@@ -57,10 +57,8 @@ class App extends Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <View style={{ flex: 1 }}>
-          <Router />
-        </View>
+      <Provider store={store}>        
+        <Router />
       </Provider>
     )
   }
