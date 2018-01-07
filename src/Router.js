@@ -3,6 +3,7 @@ import { Scene, Router } from 'react-native-router-flux'
 
 import LoginForm from './components/LoginForm'
 import TargetList from './components/TargetList'
+import CampaignList from './components/CampaignList'
 
 const RouterComponent = () => {
   return (
@@ -13,6 +14,8 @@ const RouterComponent = () => {
         </Scene>
 
         <Scene key="main">
+          <Scene key="campaignList" component={CampaignList} title="Campaigns" />
+
           <Scene
             key="targetList" 
             component={TargetList} 
