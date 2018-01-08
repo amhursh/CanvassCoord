@@ -21,5 +21,7 @@ export const SELECT_CAMPAIGN = 'select_campaign'
 
 export const SELECT_SURVEY = 'select_survey'
 
+export const SELECT_TARGET = 'select_target'
+
 
 export const TARGET_FETCH_SUCCESS = 'target_fetch_success'
