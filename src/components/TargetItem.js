@@ -61,6 +61,11 @@ class TargetItem extends Component {
               {this.renderAddress(target)}
             </Text>
           </CardSection>
+          <CardSection>
+            <Text>
+              Affiliation: {target.affiliation}
+            </Text>
+          </CardSection>
           {this.renderTargets()}
         </View>
       </TouchableNativeFeedback>
