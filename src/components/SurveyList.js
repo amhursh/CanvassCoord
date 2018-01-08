@@ -3,6 +3,7 @@ import { View, FlatList, Text } from 'react-native'
 import { connect } from 'react-redux'
 
 import { CardSection, Spinner } from './common'
+import SurveyItem from './SurveyItem'
 
 import { surveysFetch } from '../actions'
 
