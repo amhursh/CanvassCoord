@@ -5,7 +5,13 @@ import { connect } from 'react-redux'
 import { Spinner } from './common'
 // import QuestionItem from './QuestionItem'
 
+import { questionsFetch } from '../actions'
+
 class QuestionList extends Component {
+  componentDidMount() {
+    this.props.questionsFetch(this.props.selectedSurveyId)
+  }
+
   render() {
     return (
       <Text>Cool Beans</Text>
@@ -13,5 +19,11 @@ class QuestionList extends Component {
   }
 }
 
-export default QuestionList
+const mapStateToProps = (state, ownProps) => {
+  return {
+    selectedSurveyId: state.selectedSurveyId
+  }
+}
+
+export default connect(mapStateToProps, { questionsFetch })(QuestionList)
 
