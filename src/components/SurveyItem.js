@@ -10,7 +10,6 @@ import { selectSurvey } from '../actions'
 class SurveyItem extends Component {
 
   onButtonPress() {
-    console.log(this.props.survey.campaign_id)
     Actions.targetList({campaign_id: this.props.survey.campaign_id})
   }
 
@@ -27,11 +26,9 @@ class SurveyItem extends Component {
   }
 
   render() {
-    // console.log(this.props.survey)
     const survey = this.props.survey
 
     return (
-      // <Text>Bullshit</Text>
       <TouchableNativeFeedback
         onPress={() => this.props.selectSurvey(survey.id)}
       >
