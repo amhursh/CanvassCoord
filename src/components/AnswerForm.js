@@ -4,12 +4,13 @@ import { connect } from 'react-redux'
 
 import { Spinner, CardSection, Button } from './common'
 
-import { answerChanged } from '../actions'
+import { answerChanged, submitAnswer } from '../actions'
 
 class AnswerForm extends Component {
 
   onButtonPress() {
-    console.log(this.props.answer)
+    const answer = this.props.answer
+    this.props.submitAnswer(answer)
   }
 
   onAnswerChange(text) {
@@ -48,7 +49,7 @@ class AnswerForm extends Component {
 
 const styles = {
   inputStyle: {
-    textAlign: 'lefts',
+    textAlign: 'left',
     color: '#000',
     paddingRight: 5,
     paddingLeft: 5,
@@ -59,9 +60,10 @@ const styles = {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
     answer: state.answers.answer
   }
 }
 
-export default connect(mapStateToProps, { answerChanged })(AnswerForm)
+export default connect(mapStateToProps, { answerChanged, submitAnswer })(AnswerForm)
