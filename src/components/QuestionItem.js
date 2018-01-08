@@ -9,7 +9,7 @@ import { selectQuestion } from '../actions'
 
 class QuestionItem extends Component {
   onButtonPress() {
-    Actions.answerForm()
+    Actions.answerForm({question: this.props.question})
   }
 
   renderQuestions() {
