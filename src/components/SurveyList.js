@@ -11,11 +11,27 @@ class SurveyList extends Component {
     this.props.surveysFetch(this.props.campaign.id)
   }
 
-  render() {
-    alert(this.props.campaign.id)
+  renderRow(survey) {
     return (
-      <Text>Some shit</Text>
+      <SurveyItem survey={survey.item} />
     )
+  }
+
+  render() {
+    console.log(this.props.surveys)
+    if (this.props.surveys) {
+      return (
+        <FlatList
+          data={this.props.surveys}
+          renderItem={this.renderRow}
+          keyExtractor={(survey) => survey.id}
+        />
+      )
+    } else {
+      return (
+        <Spinner size="large" />
+      )
+    }
   }
 }
 
@@ -26,4 +42,3 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default connect(mapStateToProps, { surveysFetch })(SurveyList)
-// export default SurveyItem
