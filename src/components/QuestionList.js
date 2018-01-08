@@ -13,6 +13,7 @@ class QuestionList extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <Text>Cool Beans</Text>
     )
@@ -21,7 +22,8 @@ class QuestionList extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    selectedSurveyId: state.selectedSurveyId
+    selectedSurveyId: state.selectedSurveyId,
+    questions: state.questions
   }
 }
 
