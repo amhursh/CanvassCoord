@@ -10,7 +10,9 @@ class AnswerForm extends Component {
 
   onButtonPress() {
     const answer = this.props.answer
-    this.props.submitAnswer(answer)
+    const questionId = this.props.selectedQuestionId
+    const targetId = this.props.selectedTargetId
+    this.props.submitAnswer(answer, questionId, targetId)
   }
 
   onAnswerChange(text) {
@@ -60,9 +62,10 @@ const styles = {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
-    answer: state.answers.answer
+    answer: state.answers.answer,
+    selectedTargetId: state.selectedTargetId,
+    selectedQuestionId: state.selectedQuestionId
   }
 }
 
