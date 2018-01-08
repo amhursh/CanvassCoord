@@ -8,6 +8,7 @@ import QuestionReducer from './QuestionReducer'
 import CampaignSelectionReducer from './CampaignSelectionReducer'
 import SurveySelectionReducer from './SurveySelectionReducer'
 import TargetSelectionReducer from './TargetSelectionReducer'
+import QuestionSelectionReducer from './QuestionSelectionReducer'
 
 export default combineReducers({
   auth: AuthReducer,
@@ -17,5 +18,6 @@ export default combineReducers({
   questions: QuestionReducer,
   selectedCampaignId: CampaignSelectionReducer,
   selectedSurveyId: SurveySelectionReducer,
-  selectedTargetId: TargetSelectionReducer
+  selectedTargetId: TargetSelectionReducer,
+  selectedQuestionId: QuestionSelectionReducer
 })
