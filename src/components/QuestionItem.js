@@ -5,6 +5,8 @@ import { Actions } from 'react-native-router-flux'
 
 import { CardSection, Button } from './common'
 
+import { selectQuestion } from '../actions'
+
 class QuestionItem extends Component {
   onButtonPress() {
     // go to answer form
