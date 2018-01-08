@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { QUESTIONS_FETCH_SUCCESS } from '.types'
+import { QUESTIONS_FETCH_SUCCESS } from './types'
 
 export const questionsFetch = (surveyId) => {
   return (dispatch) => {
