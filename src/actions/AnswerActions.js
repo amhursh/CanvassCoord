@@ -1,7 +1,7 @@
 import { Actions } from 'react-native-router-flux'
 import axios from 'axios'
 
-import { ANSWER_CHANGED, SUBMIT_ANSWER, SUBMIT_ANSWER_SUCCESS } from './types'
+import { ANSWER_CHANGED, SUBMIT_ANSWER_SUCCESS } from './types'
 
 export const answerChanged = (text) => {
   return {
