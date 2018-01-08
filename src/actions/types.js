@@ -29,3 +29,6 @@ export const SELECT_QUESTION = 'select_question'
 export const TARGET_FETCH_SUCCESS = 'target_fetch_success'
 
 export const QUESTIONS_FETCH_SUCCESS = 'questions_fetch_success'
+
+
+export const ANSWER_CHANGED = 'answer_changed'
