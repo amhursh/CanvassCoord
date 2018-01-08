@@ -10,7 +10,8 @@ import { selectSurvey } from '../actions'
 class SurveyItem extends Component {
 
   onButtonPress() {
-    // render actions for a campaign
+    console.log(this.props.survey.campaign_id)
+    Actions.targetList({campaign_id: this.props.survey.campaign_id})
   }
 
   renderSurveys() {
