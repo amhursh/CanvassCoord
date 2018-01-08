@@ -2,30 +2,18 @@ import React, { Component } from 'react'
 import { Text, View, TouchableNativeFeedback } from 'react-native'
 import { connect } from 'react-redux'
 
-import { CardSection } from './common'
+import { CardSection, Button } from './common'
+import SurveyList from './SurveyList'
 
 import { surveysFetch, selectCampaign } from '../actions'
 
 class CampaignItem extends Component {
-  componentWillMount() {
-    // this.props.surveysFetch(this.props.campaign.id)
-  }
-
 
   renderSurveys() {
     if (this.props.expanded) {
-      // console.log(this.props.selectedCampaignId)
-      // if(!this.props.surveys)
-        this.props.surveysFetch(this.props.selectedCampaignId)
-      
-      console.log(this.props.surveys)
-
-      if(this.props.surveys)
-        return (
-          <CardSection>
-            <Text>{this.props.surveys[0].title}</Text>
-          </CardSection>
-        )
+      return (
+        <Button>View Surveys for {this.props.campaign.title}</Button>
+      )
     }
   }
 
@@ -58,10 +46,8 @@ const styles = {
 
 const mapStateToProps = (state, ownProps) => {
   const expanded = state.selectedCampaignId === ownProps.campaign.id
-  console.log(state.surveys)
 
   return {
-    surveys: state.surveys,
     selectedCampaignId: state.selectedCampaignId,
     expanded: expanded
   }

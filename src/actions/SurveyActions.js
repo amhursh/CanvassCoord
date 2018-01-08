@@ -7,7 +7,7 @@ export const surveysFetch = (campaignId) => {
   return (dispatch) => {
     axios.get(`http://10.0.2.2:8080/api/v1/surveys?campaign=${campaignId}`)
       .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         dispatch({ type: SURVEY_FETCH_SUCCESS, payload: response.data })
       })
       .catch(error => {

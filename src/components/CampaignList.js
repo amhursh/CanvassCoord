@@ -24,21 +24,29 @@ class CampaignList extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.logoutStyle}>
         <FlatList
           data={this.props.campaigns}
           renderItem={this.renderRow}
           keyExtractor={(campaign) => campaign.id}
         />
-        <CardSection>
-          <Button
-            onPress={this.onButtonPress.bind(this)}
-          >
-            Logout
-          </Button>
-        </CardSection>
+        <View>
+          <CardSection>
+            <Button
+              onPress={this.onButtonPress.bind(this)}
+            >
+              Logout
+            </Button>
+          </CardSection>
+        </View>
       </View>
     )
+  }
+}
+
+const styles = {
+  logoutStyle: {
+    justifyContent: 'space-between'
   }
 }
 
@@ -47,5 +55,7 @@ const mapStateToProps = state => {
     campaigns: state.campaigns
   }
 }
+
+
 
 export default connect(mapStateToProps, { logoutUser, campaignsFetch })(CampaignList)
