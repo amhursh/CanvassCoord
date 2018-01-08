@@ -32,3 +32,5 @@ export const QUESTIONS_FETCH_SUCCESS = 'questions_fetch_success'
 
 
 export const ANSWER_CHANGED = 'answer_changed'
+
+export const SUBMIT_ANSWER_SUCCESS = 'submit_answer_success'
