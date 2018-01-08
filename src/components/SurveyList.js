@@ -3,6 +3,7 @@ import { View, FlatList, Text } from 'react-native'
 import { connect } from 'react-redux'
 
 import { CardSection, Spinner } from './common'
+import SurveyItem from './SurveyItem'
 
 import { surveysFetch } from '../actions'
 
@@ -11,30 +12,28 @@ class SurveyList extends Component {
     this.props.surveysFetch(this.props.campaign.id)
   }
 
+  renderRow(survey) {
+    return (
+      <SurveyItem 
+        survey={survey.item}
+      />
+    )
+  }
 
-
-  renderSurveys() {
-    console.log(this.props.surveys)
-    if(this.props.surveys) {
+  render() {
+    if (this.props.surveys) {
       return (
-        <Text>{this.props.surveys[0].title}</Text>
+        <FlatList
+          data={this.props.surveys}
+          renderItem={this.renderRow}
+          keyExtractor={(survey) => survey.id}
+        />
       )
     } else {
       return (
         <Spinner size="large" />
       )
     }
-  }
-
-  render() {
-    // console.log(this.props.surveys)
-      return (
-        <View>
-          <CardSection>
-            {this.renderSurveys()}
-          </CardSection>
-        </View>
-      )
   }
 }
 
@@ -45,4 +44,3 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default connect(mapStateToProps, { surveysFetch })(SurveyList)
-// export default SurveyItem

@@ -4,14 +4,14 @@ import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 
 import { CardSection, Button } from './common'
-import SurveyList from './SurveyList'
 
-import { surveysFetch, selectCampaign } from '../actions'
+import { selectSurvey } from '../actions'
 
-class CampaignItem extends Component {
+class SurveyItem extends Component {
 
   onButtonPress() {
-    Actions.surveyList({campaign: this.props.campaign})
+    console.log(this.props.survey.campaign_id)
+    Actions.targetList({campaign_id: this.props.survey.campaign_id})
   }
 
   renderSurveys() {
@@ -20,23 +20,25 @@ class CampaignItem extends Component {
         <Button
           onPress={this.onButtonPress.bind(this)}
         >
-        View Surveys for {this.props.campaign.title}
+        View Targets
         </Button>
       )
     }
   }
 
   render() {
-    const { campaign } = this.props
+    // console.log(this.props.survey)
+    const survey = this.props.survey
 
     return (
+      // <Text>Bullshit</Text>
       <TouchableNativeFeedback
-        onPress={() => this.props.selectCampaign(campaign.id)}
+        onPress={() => this.props.selectSurvey(survey.id)}
       >
         <View>
           <CardSection>
-            <Text style={styles.campaignStyles}>
-              {campaign.title}
+            <Text>
+              {survey.title}
             </Text>
           </CardSection>
           {this.renderSurveys()}
@@ -46,20 +48,12 @@ class CampaignItem extends Component {
   }
 }
 
-const styles = {
-  campaignStyles: {
-    fontSize: 20,
-    paddingLeft: 10
-  }
-}
-
 const mapStateToProps = (state, ownProps) => {
-  const expanded = state.selectedCampaignId === ownProps.campaign.id
+  const expanded = state.selectedSurveyId === ownProps.survey.id
 
   return {
-    selectedCampaignId: state.selectedCampaignId,
     expanded: expanded
   }
 }
 
-export default connect(mapStateToProps, { surveysFetch, selectCampaign })(CampaignItem)
+export default connect(mapStateToProps, { selectSurvey })(SurveyItem)
