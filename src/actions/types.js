@@ -23,5 +23,14 @@ export const SELECT_SURVEY = 'select_survey'
 
 export const SELECT_TARGET = 'select_target'
 
+export const SELECT_QUESTION = 'select_question'
+
 
 export const TARGET_FETCH_SUCCESS = 'target_fetch_success'
+
+export const QUESTIONS_FETCH_SUCCESS = 'questions_fetch_success'
+
+
+export const ANSWER_CHANGED = 'answer_changed'
+
+export const SUBMIT_ANSWER_SUCCESS = 'submit_answer_success'
