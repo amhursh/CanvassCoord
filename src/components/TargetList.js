@@ -14,8 +14,7 @@ class TargetList extends Component {
 
   renderRow(target) {
     return (
-      // <TargetItem target={target.item} />
-      <Text>TargetsGoHere</Text>
+      <TargetItem target={target.item} />
     )
   }
 
@@ -23,7 +22,7 @@ class TargetList extends Component {
     if (this.props.targets) {
       return (
         <FlatList
-          data={this.props.target}
+          data={this.props.targets}
           renderItem={this.renderRow}
           keyExtractor={(target) => target.id}
         />
@@ -37,6 +36,7 @@ class TargetList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(state.targets)
   return {
     targets: state.targets
   }
