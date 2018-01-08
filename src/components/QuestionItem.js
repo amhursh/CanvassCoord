@@ -9,7 +9,7 @@ import { selectQuestion } from '../actions'
 
 class QuestionItem extends Component {
   onButtonPress() {
-    Actions.answer()
+    Actions.answerForm()
   }
 
   renderQuestions() {

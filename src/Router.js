@@ -6,6 +6,7 @@ import TargetList from './components/TargetList'
 import CampaignList from './components/CampaignList'
 import SurveyList from './components/SurveyList'
 import QuestionList from './components/QuestionList'
+import AnswerForm from './components/AnswerForm'
 
 const RouterComponent = () => {
   return (
@@ -40,6 +41,12 @@ const RouterComponent = () => {
             key="questionsList"
             component={QuestionList}
             title="Survey"
+          />
+
+          <Scene
+            key="answerForm"
+            component={AnswerForm}
+            title="Answer"
           />
 
         </Scene>
