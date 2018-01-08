@@ -9,7 +9,7 @@ import { selectTarget } from '../actions'
 
 class TargetItem extends Component {
   onButtonPress() {
-    // go to survey and bring target id
+    Actions.questionsList({campaignId: this.props.target.campaign_id})
   }
 
   renderTargets() {
