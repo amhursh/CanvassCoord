@@ -14,12 +14,13 @@ class SurveyList extends Component {
 
   renderRow(survey) {
     return (
-      <SurveyItem survey={survey.item} campaign={this.props.campaign} />
+      <SurveyItem 
+        survey={survey.item}
+      />
     )
   }
 
   render() {
-    console.log(this.props.surveys)
     if (this.props.surveys) {
       return (
         <FlatList

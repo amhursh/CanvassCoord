@@ -26,9 +26,11 @@ class SurveyItem extends Component {
   }
 
   render() {
-    const { survey } = this.props
+    // console.log(this.props.survey)
+    const survey = this.props.survey
 
     return (
+      // <Text>Bullshit</Text>
       <TouchableNativeFeedback
         onPress={() => this.props.selectSurvey(survey.id)}
       >
@@ -49,7 +51,7 @@ const mapStateToProps = (state, ownProps) => {
   const expanded = state.selectedSurveyId === ownProps.survey.id
 
   return {
-    expanded
+    expanded: expanded
   }
 }
 
