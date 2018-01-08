@@ -25,3 +25,5 @@ export const SELECT_TARGET = 'select_target'
 
 
 export const TARGET_FETCH_SUCCESS = 'target_fetch_success'
+
+export const QUESTIONS_FETCH_SUCCESS = 'questions_fetch_success'
