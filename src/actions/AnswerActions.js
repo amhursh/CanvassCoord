@@ -20,6 +20,7 @@ export const submitAnswer = (answer, questionId, targetId) => {
     .then(response => {
       dispatch({ type: SUBMIT_ANSWER_SUCCESS, payload: response.data})
     })
+    Actions.pop()
   }
 }
 
