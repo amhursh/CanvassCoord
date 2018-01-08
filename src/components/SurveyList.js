@@ -14,7 +14,7 @@ class SurveyList extends Component {
 
   renderRow(survey) {
     return (
-      <SurveyItem survey={survey.item} />
+      <SurveyItem survey={survey.item} campaign={this.props.campaign} />
     )
   }
 

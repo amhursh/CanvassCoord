@@ -5,11 +5,24 @@ import { Actions } from 'react-native-router-flux'
 
 import { CardSection, Button } from './common'
 
+import { selectSurvey } from '../actions'
 
 class SurveyItem extends Component {
 
-  renderSurveys() {
+  onButtonPress() {
+    // render actions for a campaign
+  }
 
+  renderSurveys() {
+    if (this.props.expanded) {
+      return (
+        <Button
+          onPress={this.onButtonPress.bind(this)}
+        >
+        View Targets
+        </Button>
+      )
+    }
   }
 
   render() {
@@ -32,4 +45,12 @@ class SurveyItem extends Component {
   }
 }
 
-export default SurveyItem
+const mapStateToProps = (state, ownProps) => {
+  const expanded = state.selectedSurveyId === ownProps.survey.id
+
+  return {
+    expanded
+  }
+}
+
+export default connect(mapStateToProps, { selectSurvey })(SurveyItem)
