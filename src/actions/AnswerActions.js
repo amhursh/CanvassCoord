@@ -12,7 +12,7 @@ export const answerChanged = (text) => {
 
 export const submitAnswer = (answer, questionId, targetId) => {
   return dispatch => {
-    axios.post(`http:10.0.2.2:8080/api/v1/answers`, {
+    axios.post(`http://canvass-coord-api.herokuapp.com/api/v1/answers`, {
       answer: answer,
       questionId: questionId,
       targetId: targetId
