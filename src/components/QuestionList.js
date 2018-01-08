@@ -3,7 +3,7 @@ import { View, Text, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 
 import { Spinner } from './common'
-// import QuestionItem from './QuestionItem'
+import QuestionItem from './QuestionItem'
 
 import { questionsFetch } from '../actions'
 
@@ -12,11 +12,28 @@ class QuestionList extends Component {
     this.props.questionsFetch(this.props.selectedSurveyId)
   }
 
-  render() {
-    console.log(this.props)
+  renderRow(question) {
     return (
-      <Text>Cool Beans</Text>
+      <QuestionItem
+        question={question.item}
+      />
     )
+  }
+
+  render() {
+    if (this.props.questions) {
+      return (
+        <FlatList
+          data={this.props.questions}
+          renderItem={this.renderRow}
+          keyExtractor={(question) => question.id}
+        />
+      )
+    } else {
+      return (
+        <Spinner size="large" />
+      )
+    }
   }
 }
 
