@@ -3,7 +3,7 @@ import { View, Text, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 
 import { CardSection, Spinner } from './common'
-import { } from '../actions'
+import TargetItem from './TargetItem'
 
 import { targetsFetch } from '../actions'
 
@@ -36,7 +36,6 @@ class TargetList extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state.targets)
   return {
     targets: state.targets
   }

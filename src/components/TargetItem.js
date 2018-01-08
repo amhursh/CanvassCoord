@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableNativeFeedback } from 'react-redux'
+import { Text, View, TouchableNativeFeedback } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 
@@ -24,6 +24,20 @@ class TargetItem extends Component {
     }
   }
 
+  renderAddress(target) {
+    const targetInfo = [
+      target.street_number,
+      target.street_name,
+      target.unit,
+      target.city,
+      target.state,
+      target.zip
+    ]
+    return (
+      targetInfo.join(' ')
+    )
+  }
+
   render() {
     const target = this.props.target
 
@@ -31,17 +45,32 @@ class TargetItem extends Component {
       <TouchableNativeFeedback
         onPress={() => this.props.selectTarget(target.id)}
       >
-        <View>
+        <View style={styles.targetViewStyle}>
           <CardSection>
             <Text>
-              {target.first_name}
+              {target.id}
             </Text>
           </CardSection>
-          <
+          <CardSection>
+            <Text>
+              {target.first_name + " " + target.last_name}
+            </Text>
+          </CardSection>
+          <CardSection>
+            <Text>
+              {this.renderAddress(target)}
+            </Text>
+          </CardSection>
           {this.renderTargets()}
         </View>
       </TouchableNativeFeedback>
     )
+  }
+}
+
+const styles = {
+  targetViewStyle: {
+    paddingTop: 5
   }
 }
 
