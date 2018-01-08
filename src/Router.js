@@ -9,10 +9,6 @@ const RouterComponent = () => {
   return (
     <Router>
       <Scene key="root" hideNavBar>
-        <Scene key="auth">
-          <Scene key="login" component={LoginForm} title="Login" />
-        </Scene>
-
         <Scene key="main">
           <Scene key="campaignList" component={CampaignList} title="Campaigns" />
 
@@ -23,6 +19,10 @@ const RouterComponent = () => {
             headerMode="screen" 
           />
         </Scene>
+        <Scene key="auth">
+          <Scene key="login" component={LoginForm} title="Login" />
+        </Scene>
+
       </Scene>
     </Router>
   )

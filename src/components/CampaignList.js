@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, TouchableNativeFeedback } from 'react-native'
 import { connect } from 'react-redux'
 
 import { CardSection, Button } from './common'
@@ -18,9 +18,7 @@ class CampaignList extends Component {
 
   renderRow(campaign) {
     return (
-      <CardSection>
         <CampaignItem campaign={campaign.item} />
-      </CardSection>
     )
   }
 

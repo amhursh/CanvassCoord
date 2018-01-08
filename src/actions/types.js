@@ -12,3 +12,9 @@ export const LOUGOUT_USER = 'logout_user'
 
 
 export const CAMPAIGN_FETCH_SUCCESS = 'campaign_fetch_success'
+
+
+export const SURVEY_FETCH_SUCCESS = 'survey_fetch_success'
+
+
+export const SELECT_CAMPAIGN = 'select_campaign'
