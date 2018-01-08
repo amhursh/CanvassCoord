@@ -4,6 +4,7 @@ import { Scene, Router } from 'react-native-router-flux'
 import LoginForm from './components/LoginForm'
 import TargetList from './components/TargetList'
 import CampaignList from './components/CampaignList'
+import SurveyList from './components/SurveyList'
 
 const RouterComponent = () => {
   return (
@@ -14,7 +15,18 @@ const RouterComponent = () => {
         </Scene>
 
         <Scene key="main">
-          <Scene key="campaignList" component={CampaignList} title="Campaigns" />
+
+          <Scene 
+            key="campaignList" 
+            component={CampaignList} 
+            title="Campaigns" 
+          />
+
+          <Scene
+            key="surveyList"
+            component={SurveyList}
+            title="Surveys"
+          />
 
           <Scene
             key="targetList" 
@@ -22,6 +34,7 @@ const RouterComponent = () => {
             title="Targets" 
             headerMode="screen" 
           />
+
         </Scene>
       </Scene>
     </Router>

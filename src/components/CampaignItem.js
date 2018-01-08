@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableNativeFeedback } from 'react-native'
 import { connect } from 'react-redux'
+import { Actions } from 'react-native-router-flux'
 
 import { CardSection, Button } from './common'
 import SurveyList from './SurveyList'
@@ -9,10 +10,18 @@ import { surveysFetch, selectCampaign } from '../actions'
 
 class CampaignItem extends Component {
 
+  onButtonPress() {
+    Actions.surveyList({campaign: this.props.campaign})
+  }
+
   renderSurveys() {
     if (this.props.expanded) {
       return (
-        <Button>View Surveys for {this.props.campaign.title}</Button>
+        <Button
+          onPress={this.onButtonPress.bind(this)}
+        >
+        View Surveys for {this.props.campaign.title}
+        </Button>
       )
     }
   }

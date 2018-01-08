@@ -11,30 +11,11 @@ class SurveyList extends Component {
     this.props.surveysFetch(this.props.campaign.id)
   }
 
-
-
-  renderSurveys() {
-    console.log(this.props.surveys)
-    if(this.props.surveys) {
-      return (
-        <Text>{this.props.surveys[0].title}</Text>
-      )
-    } else {
-      return (
-        <Spinner size="large" />
-      )
-    }
-  }
-
   render() {
-    // console.log(this.props.surveys)
-      return (
-        <View>
-          <CardSection>
-            {this.renderSurveys()}
-          </CardSection>
-        </View>
-      )
+    alert(this.props.campaign.id)
+    return (
+      <Text>Some shit</Text>
+    )
   }
 }
 
