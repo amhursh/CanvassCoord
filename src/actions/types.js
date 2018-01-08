@@ -20,3 +20,6 @@ export const SURVEY_FETCH_SUCCESS = 'survey_fetch_success'
 export const SELECT_CAMPAIGN = 'select_campaign'
 
 export const SELECT_SURVEY = 'select_survey'
+
+
+export const TARGET_FETCH_SUCCESS = 'target_fetch_success'
