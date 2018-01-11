@@ -110,9 +110,15 @@ const styles = {
     backgroundColor: '#b3e5fc'
   },
   titleText: {
-    fontSize: 20,
+    fontSize: 30,
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    fontWeight: 'bold',
+    textShadowColor: '#E57373',
+    textShadowOffset: {
+      width: 0.5,
+      height: 0.5
+    }
   },
   titleContainer: {
     justifyContent: 'center',
@@ -120,7 +126,9 @@ const styles = {
     flex: 1
   },
   contentContainer: {
-    paddingBottom: 100
+    paddingBottom: '25%',
+    paddingTop: '2%'
+
   }
 }
 

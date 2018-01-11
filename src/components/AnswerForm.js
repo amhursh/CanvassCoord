@@ -70,7 +70,7 @@ const styles = {
   },
   contentContainer: {
     paddingBottom: '25%',
-    paddingTop: '10%'
+    paddingTop: '8%'
   }
 }
 
