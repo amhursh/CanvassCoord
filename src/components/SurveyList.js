@@ -23,17 +23,27 @@ class SurveyList extends Component {
   render() {
     if (this.props.surveys) {
       return (
-        <FlatList
-          data={this.props.surveys}
-          renderItem={this.renderRow}
-          keyExtractor={(survey) => survey.id}
-        />
+        <View style={styles.container} >
+          <FlatList
+            data={this.props.surveys}
+            renderItem={this.renderRow}
+            keyExtractor={(survey) => survey.id}
+          />
+        </View>
       )
     } else {
       return (
         <Spinner size="large" />
       )
     }
+  }
+}
+
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: '#b3e5fc',
+    paddingTop: 5
   }
 }
 

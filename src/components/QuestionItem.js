@@ -15,11 +15,13 @@ class QuestionItem extends Component {
   renderQuestions() {
     if (this.props.expanded) {
       return (
-        <Button
-          onPress={this.onButtonPress.bind(this)}
-        >
-        Answer
-        </Button>
+        <CardSection>
+          <Button
+            onPress={this.onButtonPress.bind(this)}
+          >
+          Answer
+          </Button>
+        </CardSection>
       )
     }
   }

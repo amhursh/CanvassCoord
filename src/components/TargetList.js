@@ -21,17 +21,26 @@ class TargetList extends Component {
   render() {
     if (this.props.targets) {
       return (
-        <FlatList
-          data={this.props.targets}
-          renderItem={this.renderRow}
-          keyExtractor={(target) => target.id}
-        />
+        <View style={styles.container} >
+          <FlatList
+            data={this.props.targets}
+            renderItem={this.renderRow}
+            keyExtractor={(target) => target.id}
+          />
+        </View>
       )
     } else {
       return (
         <Spinner size="large" />
       )
     }
+  }
+}
+
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: '#b3e5fc'
   }
 }
 

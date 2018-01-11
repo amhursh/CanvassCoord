@@ -56,11 +56,12 @@ class CampaignList extends Component {
 const styles = {
   contentContainer: {
     flex: 1,
-    backgroundColor: '#b3e5fc'
+    
   },
   container: {
     flex: 1,
-    backgroundColor: '#53774c'
+    backgroundColor: '#b3e5fc',
+    paddingTop: 5
   },
   logoutContainer: {
 

@@ -17,11 +17,13 @@ class CampaignItem extends Component {
   renderSurveys() {
     if (this.props.expanded) {
       return (
-        <Button
-          onPress={this.onButtonPress.bind(this)}
-        >
-        View Surveys for {this.props.campaign.title}
-        </Button>
+        <CardSection>
+          <Button
+            onPress={this.onButtonPress.bind(this)}
+          >
+          View Current Surveys
+          </Button>
+        </CardSection>
       )
     }
   }
@@ -34,7 +36,7 @@ class CampaignItem extends Component {
         onPress={() => this.props.selectCampaign(campaign.id)}
       >
         <View>
-          <CardSection style={styles.campaignContainer}>
+          <CardSection>
             <Text style={styles.campaignText}>
               {campaign.title}
             </Text>
@@ -50,9 +52,6 @@ const styles = {
   campaignText: {
     fontSize: 20,
     paddingLeft: 10
-  },
-  campaignContainer: {
-    backgroundColor: '#53774c'
   }
 }
 

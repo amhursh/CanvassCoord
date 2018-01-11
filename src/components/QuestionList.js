@@ -23,17 +23,27 @@ class QuestionList extends Component {
   render() {
     if (this.props.questions) {
       return (
-        <FlatList
-          data={this.props.questions}
-          renderItem={this.renderRow}
-          keyExtractor={(question) => question.id}
-        />
+        <View style={styles.container} >
+          <FlatList
+            data={this.props.questions}
+            renderItem={this.renderRow}
+            keyExtractor={(question) => question.id}
+          />
+        </View>
       )
     } else {
       return (
         <Spinner size="large" />
       )
     }
+  }
+}
+
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: '#b3e5fc',
+    paddingTop: 5
   }
 }
 
