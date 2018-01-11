@@ -9,7 +9,7 @@ import { selectQuestion, isQuestionAnswered } from '../actions'
 
 class QuestionItem extends Component {
   componentDidMount() {
-    this.props.isQuestionAnswered()
+    this.props.isQuestionAnswered(this.props.targetId, this.props.questionId)
   }
 
   onButtonPress() {
