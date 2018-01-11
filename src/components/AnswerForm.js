@@ -21,29 +21,31 @@ class AnswerForm extends Component {
 
   render() {
     return (
-      <View>
-        <CardSection>
-          <Text>
-            {this.props.question.body}
-          </Text>
-        </CardSection>
-        <CardSection>
-          <TextInput 
-            style={styles.inputStyle}
-            placeholder="Answer"
-            onChangeText={this.onAnswerChange.bind(this)}
-            value={this.props.answer}
-            multiline={true}
-            numberOfLines={6}
-          />
-        </CardSection>
-        <CardSection>
-          <Button
-            onPress={this.onButtonPress.bind(this)}
-          >
-            Submit
-          </Button>
-        </CardSection>
+      <View style={styles.container} >
+        <View style={styles.contentContainer}>
+          <CardSection>
+            <Text>
+              {this.props.question.body}
+            </Text>
+          </CardSection>
+          <CardSection>
+            <TextInput 
+              style={styles.inputStyle}
+              placeholder="Answer"
+              onChangeText={this.onAnswerChange.bind(this)}
+              value={this.props.answer}
+              multiline={true}
+              numberOfLines={6}
+            />
+          </CardSection>
+          <CardSection>
+            <Button
+              onPress={this.onButtonPress.bind(this)}
+            >
+              Submit
+            </Button>
+          </CardSection>
+        </View>
       </View>
     )
   }
@@ -58,6 +60,17 @@ const styles = {
     fontSize: 18,
     lineHeight: 20,
     flex: 1
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#b3e5fc',
+    justifyContent: 'center',
+    paddingTop: 5,
+    flex: 1 
+  },
+  contentContainer: {
+    paddingBottom: '25%',
+    paddingTop: '8%'
   }
 }
 

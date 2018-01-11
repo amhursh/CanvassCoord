@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
-import { View, Text, FlatList, TouchableNativeFeedback } from 'react-native'
+import { View, Text, FlatList, TouchableNativeFeedback, Keyboard } from 'react-native'
 import { connect } from 'react-redux'
 
-import { CardSection, Button } from './common'
+import { CardSection, Button, Spinner } from './common'
 import CampaignItem from './CampaignItem'
 
 import { logoutUser, campaignsFetch } from '../actions'
 
 class CampaignList extends Component {
-  componentWillMount() {
+  componentDidMount() {
+    Keyboard.dismiss()
     this.props.campaignsFetch()
   }
 
@@ -23,30 +24,49 @@ class CampaignList extends Component {
   }
 
   render() {
-    return (
-      <View style={styles.logoutStyle}>
-        <FlatList
-          data={this.props.campaigns}
-          renderItem={this.renderRow}
-          keyExtractor={(campaign) => campaign.id}
-        />
-        <View>
-          <CardSection>
-            <Button
-              onPress={this.onButtonPress.bind(this)}
-            >
-              Logout
-            </Button>
-          </CardSection>
+    if (this.props.campaigns) {
+      return (
+          <View style={styles.container} >
+            <View style={styles.contentContainer} >
+              <FlatList
+                data={this.props.campaigns}
+                renderItem={this.renderRow}
+                keyExtractor={(campaign) => campaign.id}
+              />
+            </View>
+            <View style={styles.logoutContainer}>
+              <CardSection>
+                <Button
+                  onPress={this.onButtonPress.bind(this)}
+                >
+                  Logout
+                </Button>
+              </CardSection>
+            </View>
+          </View>
+      )
+    } else {
+      return (
+        <View style={styles.container} >
+          <Spinner size="large" />
         </View>
-      </View>
-    )
+      )
+    }
   }
 }
 
 const styles = {
-  logoutStyle: {
-    justifyContent: 'space-between'
+  contentContainer: {
+    flex: 1,
+    
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#b3e5fc',
+    paddingTop: 5
+  },
+  logoutContainer: {
+
   }
 }
 

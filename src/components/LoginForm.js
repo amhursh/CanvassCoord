@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { Text } from 'react-native'
+import { Text, View, ImageBackground } from 'react-native'
 import { connect } from 'react-redux'
 import firebase from 'firebase'
 
 import { emailChanged, passwordChanged, loginUser } from '../actions'
 
 import { Button, Card, CardSection, Input, Spinner } from './common'
+
+const background = 'http://www.singhajit.com/wp-content/uploads/2015/09/gradient-2.png'
 
 class LoginForm extends Component {
 
@@ -38,47 +40,95 @@ class LoginForm extends Component {
   renderError() {
     if (this.props.error) {
       return (
-        <Text style={styles.errorTextStyle}>
-          {this.props.error}
-        </Text>
+        <CardSection>
+          <View style={styles.errorTextContainer} >
+            <Text style={styles.errorText}>
+              {this.props.error}
+            </Text>
+          </View>
+        </CardSection>
       )
     }
   }
 
   render() {
     return (
-      <Card>
-        <CardSection>
-          <Input
-            placeholder="user123@gmail.com"
-            label="Email" 
-            value={this.props.email}
-            onChangeText={this.onEmailChange.bind(this)}
-          />
-        </CardSection>
-        <CardSection>
-          <Input
-            secureTextEntry={true} 
-            placeholder="opensesame123"
-            label="Password"
-            value={this.props.password}
-            onChangeText={this.onPasswordChange.bind(this)}
-          />
-        </CardSection>
-          {this.renderError()}
-        <CardSection>
-          {this.renderButton()}
-        </CardSection>
-      </Card>
+      <View style={styles.container} >
+        <View style={styles.contentContainer}>
+        <Card>
+          <CardSection>
+            <View style={styles.titleContainer}>
+              <Text
+                style={styles.titleText}
+              >
+                CanvassCoord
+              </Text>
+            </View>
+          </CardSection>
+          <CardSection>
+            <Input
+              placeholder="user123@gmail.com"
+              label="Email" 
+              value={this.props.email}
+              onChangeText={this.onEmailChange.bind(this)}
+            />
+          </CardSection>
+          <CardSection>
+            <Input
+              secureTextEntry={true} 
+              placeholder="opensesame123"
+              label="Password"
+              value={this.props.password}
+              onChangeText={this.onPasswordChange.bind(this)}
+            />
+          </CardSection>
+            {this.renderError()}
+          <CardSection>
+            {this.renderButton()}
+          </CardSection>
+        </Card>
+        </View>
+      </View>
     )
   }
 }
 
 const styles = {
-  errorTextStyle: {
+  errorText: {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
+  },
+  errorTextContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#b3e5fc'
+  },
+  titleText: {
+    fontSize: 30,
+    paddingTop: 10,
+    paddingBottom: 10,
+    fontWeight: 'bold',
+    textShadowColor: '#E57373',
+    textShadowOffset: {
+      width: 0.5,
+      height: 0.5
+    }
+  },
+  titleContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
+  },
+  contentContainer: {
+    paddingBottom: '25%',
+    paddingTop: '2%'
+
   }
 }
 

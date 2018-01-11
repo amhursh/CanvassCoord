@@ -16,11 +16,13 @@ class SurveyItem extends Component {
   renderSurveys() {
     if (this.props.expanded) {
       return (
-        <Button
-          onPress={this.onButtonPress.bind(this)}
-        >
-        View Targets
-        </Button>
+        <CardSection>
+          <Button
+            onPress={this.onButtonPress.bind(this)}
+          >
+          View Targets
+          </Button>
+        </CardSection>
       )
     }
   }
@@ -34,7 +36,7 @@ class SurveyItem extends Component {
       >
         <View>
           <CardSection>
-            <Text>
+            <Text style={styles.surveyText}>
               {survey.title}
             </Text>
           </CardSection>
@@ -42,6 +44,13 @@ class SurveyItem extends Component {
         </View>
       </TouchableNativeFeedback>
     )
+  }
+}
+
+const styles = {
+  surveyText: {
+    fontSize: 20,
+    paddingLeft: 10
   }
 }
 
