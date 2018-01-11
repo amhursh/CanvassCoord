@@ -40,9 +40,13 @@ class LoginForm extends Component {
   renderError() {
     if (this.props.error) {
       return (
-        <Text style={styles.errorTextStyle}>
-          {this.props.error}
-        </Text>
+        <CardSection>
+          <View style={styles.errorTextContainer} >
+            <Text style={styles.errorText}>
+              {this.props.error}
+            </Text>
+          </View>
+        </CardSection>
       )
     }
   }
@@ -90,10 +94,15 @@ class LoginForm extends Component {
 }
 
 const styles = {
-  errorTextStyle: {
+  errorText: {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
+  },
+  errorTextContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
   },
   container: {
     flex: 1,
