@@ -5,9 +5,13 @@ import { Actions } from 'react-native-router-flux'
 
 import { CardSection, Button } from './common'
 
-import { selectQuestion } from '../actions'
+import { selectQuestion, isQuestionAnswered } from '../actions'
 
 class QuestionItem extends Component {
+  componentDidMount() {
+    this.props.isQuestionAnswered()
+  }
+
   onButtonPress() {
     Actions.answerForm({question: this.props.question})
   }
@@ -50,8 +54,10 @@ const mapStateToProps = (state, ownProps) => {
   const expanded = state.selectedQuestionId === ownProps.question.id
 
   return {
-    expanded
+    expanded: expanded,
+    questionId: state.selectedQuestionId,
+    targetId: state.selectedTargetId
   }
 }
 
-export default connect(mapStateToProps, { selectQuestion })(QuestionItem)
+export default connect(mapStateToProps, { selectQuestion, isQuestionAnswered })(QuestionItem)
