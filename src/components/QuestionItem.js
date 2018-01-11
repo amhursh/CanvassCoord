@@ -9,7 +9,9 @@ import { selectQuestion, isQuestionAnswered } from '../actions'
 
 class QuestionItem extends Component {
   componentDidMount() {
-    this.props.isQuestionAnswered(this.props.targetId, this.props.questionId)
+    // console.log(this.props)
+    // this.props.isQuestionAnswered(this.props.targetId, this.props.question.id)
+    // console.log(this.props.isAnswered)
   }
 
   onButtonPress() {
@@ -56,7 +58,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     expanded: expanded,
     questionId: state.selectedQuestionId,
-    targetId: state.selectedTargetId
+    targetId: state.selectedTargetId,
+    isAnswered: state.answers.questionsAnswered
   }
 }
 

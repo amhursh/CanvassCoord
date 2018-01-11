@@ -13,9 +13,12 @@ export const questionsFetch = (surveyId) => {
 
 export const isQuestionAnswered = (targetId, questionId) => {
   return (dispatch) => {
-    axios.get(`http://10.0.0.2:8080/api/v1/targets/${targetId}/questions/${questionId}`)
+    axios.get(`http:10.0.2.2:8080/api/v1/targets/${targetId}/questions/${questionId}`)
       .then(response => {
         dispatch({ type: IS_QUESTION_ANSWERED_FETCH_SUCCESS, payload: response.data })
+      })
+      .catch(error => {
+        console.log(error)
       })
   }
 }

@@ -47,7 +47,9 @@ class CampaignList extends Component {
       )
     } else {
       return (
-        <Spinner size="large" />
+        <View style={styles.container} >
+          <Spinner size="large" />
+        </View>
       )
     }
   }
