@@ -34,8 +34,8 @@ class CampaignItem extends Component {
         onPress={() => this.props.selectCampaign(campaign.id)}
       >
         <View>
-          <CardSection>
-            <Text style={styles.campaignStyles}>
+          <CardSection style={styles.campaignContainer}>
+            <Text style={styles.campaignText}>
               {campaign.title}
             </Text>
           </CardSection>
@@ -47,9 +47,12 @@ class CampaignItem extends Component {
 }
 
 const styles = {
-  campaignStyles: {
+  campaignText: {
     fontSize: 20,
     paddingLeft: 10
+  },
+  campaignContainer: {
+    backgroundColor: '#53774c'
   }
 }
 
